@@ -3,6 +3,8 @@ source "https://rubygems.org"
 # application Gems 
 gem "bcrypt" # for storing passwords
 gem 'sprockets'
+gem "turbo-rails"
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"
@@ -38,3 +40,5 @@ group :development, :test do
 end
 
 
+
+gem "importmap-rails", "~> 2.0"

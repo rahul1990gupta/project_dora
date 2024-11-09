@@ -5,15 +5,13 @@
   <% end %>
   
     <div class="navlinks">
-      <%= link_to "new", "#" %>
-      <%= link_to "comments", "#" %>
-
       <% unless logged_in? %>
         <%= link_to "signup", new_user_path %>
         <%= link_to "login", new_session_path %>
       <% end %>
 
       <% if logged_in? %>
+        <%= link_to "Hello #{current_user.username}", "#" %>
         <%= link_to "submit a link", new_link_path %>
         <%= link_to "logout", logout_path %>
       <% end %>

@@ -12,10 +12,6 @@
                 <span class="edit-link">
                     <%= link_to "edit", edit_link_path(link) %>
                 </span>
-
-                <span class="delete-link">
-                    <%= link_to "delete", link, method: :delete, data: { confirm: "Are you sure?" } %>
-                </span>
             <% end %>
         <% end %>
       </div>
@@ -26,6 +22,9 @@
         </span>
         <span class="time-created">
           <%= time_ago_in_words(link.created_at) %> ago
+        </span>
+        <span class="comment-count">
+          <%= link_to pluralize(link.comment_count, 'comment'), link %>
         </span>
       </div>
 

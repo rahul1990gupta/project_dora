@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
   belongs_to :user
+  has_many :comments
 
   validates :title,
             presence: true,
@@ -8,4 +9,8 @@ class Link < ApplicationRecord
   validates :url,
           format: { with: %r{\Ahttps?://} },
           allow_blank: true
+
+  def comment_count
+    comments.length
+  end
 end

@@ -43,3 +43,22 @@ a {
     width: 30px;
 }
 
+.metadata {
+    span {
+      margin: 0 4px;
+      border-right: 1px solid antiquewhite;
+      
+      &:first-child {
+        margin: 0;
+      }
+      
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+
+.comment {
+    margin: 12px auto;
+    border-bottom: 1px solid #f5f5f5;
+}
