@@ -1,6 +1,7 @@
 # install depenencies 
 apt-get install autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
-apt-get install sqlite3
+apt-get install sqlite3 nginx
+snap install --classic certbot
 
 # install rbenv
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv

@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :prevent_unauthorized_user_access, only: [:new, :edit]
 
   def index
-    @links = Link.all
+    @links = Link.order(id: :desc).limit(50)
   end
 
   def new
@@ -21,7 +21,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find_by(id: params[:id])
-    @comments = @link.comments
+    @comments = @link.comments.order(id: :desc)
   end
 
   def edit

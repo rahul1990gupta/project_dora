@@ -13,7 +13,8 @@ body {
     background-color: rgb(17, 24, 39);
     color: antiquewhite;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1200px;
+    font-size: 1.5rem;
 }
 
 nav {
@@ -68,5 +69,8 @@ input, button {
     color: antiquewhite;
     border: 2px solid antiquewhite;
     border-radius: 3px;
-    
+}
+
+.form-group {
+    margin-bottom: 1rem;
 }
