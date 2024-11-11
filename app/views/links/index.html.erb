@@ -2,11 +2,11 @@
   <% @links.each do |link|  %>
     <div class="link">
       <div class="title">
-        <%= link_to link.title, (link.url? ? link.url : link) %>
+        <%= link_to truncate_link(link.title), (link.url? ? link.url : link) %>
 
         <% if link.url? %>
           <span>
-            ( <%= link.url %> )
+            ( <%= truncate_link(link.url) %> )
           </span>
             <% if logged_in? && current_user.owns_link?(link) %>
                 <span class="edit-link">
