@@ -3,10 +3,9 @@
     <div class="link">
       <div class="title">
         <%= link_to link.title, (link.url? ? link.url : link) %>
-
         <% if link.url? %>
           <span>
-            ( <%= link.url %> )
+            (<%= URI.parse(link.url).host %>)
           </span>
             <% if logged_in? && current_user.owns_link?(link) %>
                 <span class="edit-link">

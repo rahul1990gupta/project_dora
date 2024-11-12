@@ -12,11 +12,14 @@
 body {
     background-color: rgb(17, 24, 39);
     color: antiquewhite;
-    margin: 0 auto;
-    max-width: 1200px;
     font-size: 1.5rem;
+    margin-left: 20px
 }
 
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -30,7 +33,7 @@ ul {
   list-style: none;
 }
 .link {
-  margin: 12px auto;
+  margin: 25px auto;
 }
 
 a {
