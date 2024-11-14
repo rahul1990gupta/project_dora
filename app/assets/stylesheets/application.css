@@ -102,3 +102,14 @@ input, button {
 .form-group {
     margin-bottom: 1rem;
 }
+textarea {
+    width: 100%;
+    max-width: 100%;  /* Prevents it from growing beyond the container */
+    box-sizing: border-box;  /* Includes padding in width calculation */
+    padding: 10px;
+    font-size: 16px;  /* Adjust font size for readability */
+  }
+
+p.comment-body{
+    white-space: pre-line;
+  }
