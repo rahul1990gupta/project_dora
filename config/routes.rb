@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :index]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :prevent_logged_in_user_access
 
+  def index
+    @users = User.select(:username)
+  end 
+  
   def new
     @user = User.new
   end
