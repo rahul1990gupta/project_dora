@@ -5,10 +5,6 @@ class GoalsController < ApplicationController
     @end_dates = current_user.goals.distinct.pluck(:end_date)
   end
 
-  # Show a specific goal
-  def show
-    @goal = Goal.find(params[:id])
-  end
 
   # Handle form submission to create a new goal
   def create
@@ -31,32 +27,6 @@ class GoalsController < ApplicationController
     end
   end 
 
-  # # Display the form to create a new goal
-  # def new
-  #   @goal = Goal.new
-  # end
-
-  # # Display the form to edit an existing goal
-  # def edit
-  #   @goal = Goal.find(params[:id])
-  # end
-
-  # # Handle form submission to update an existing goal
-  # def update
-  #   @goal = Goal.find(params[:id])
-  #   if @goal.update(goal_params)
-  #     redirect_to @goal, notice: "Goal was successfully updated."
-  #   else
-  #     render :edit, status: :unprocessable_entity
-  #   end
-  # end
-
-  # # Delete a specific goal
-  # def destroy
-  #   @goal = Goal.find(params[:id])
-  #   @goal.destroy
-  #   redirect_to goals_path, notice: "Goal was successfully deleted."
-  # end
 
   private
 
