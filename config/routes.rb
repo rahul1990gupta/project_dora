@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  resources :goals do 
+    patch :update_status, on: :member
+  end 
+  
   resources :links, except: :index do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end

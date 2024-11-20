@@ -1,0 +1,122 @@
+<section id="framework">
+    <div id="goals" class="motivator-column">
+        <h3> Goals </h3>
+        <ul>
+            <li> Set clear goals </li>
+            <li> Understand your why ? </li>
+            <li> Track your progress </li>
+        </ul>
+    </div>
+    <div id="discipline" class="motivator-column">
+        <h3> Discipline </h3>
+        <ul>
+            <li> Build good habits </li>
+            <li> Celebrate small wins </li>
+            <li> Eliminate Distractions </li>
+            <li> Physical Activities helps with mental focus</li>
+        </ul>
+    </div>
+
+    <div id="attitude" class="motivator-column">
+    <h3> Attitude </h3>
+        <ul>
+            <li> Stay disciplined </li>
+            <li> Seek Accountability </li>
+            <li> Embrace Setbacks </li>
+        </ul>
+    </div>
+
+</section>
+
+<% if current_user.username == "rgupta1" %>
+<section id="faq">
+
+    <section>
+        <h3>Q. Why RoR?</h3>
+        <ul>
+            <li>Iterating on a website is faster. No compilation or build step. Easy testing and deployment.</li>
+            <li>Underlying tech stack doesnt change. HTML, CSS, and JS still support features from the 1995 era.</li>
+            <li>Website can be adapted to work on mobile devices using PWA and responsive design.</li>
+            <li>Easier to build a side hustle while working on a job.</li>
+            <li>Best for personal projects.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Q. How can I learn it in 4 months, when other people take years to master it?</h3>
+        <ul>
+            <li>I will focus solely on learning RoR and nothing else. This means not learning Node.js, Rust, Flutter, app development, Python, ML, Golang, databases, Chrome extension, games, etc. A lot must be sacrificed to make real progress on RoR. Once comfortable with RoR, other things will come easier to me.</li>
+            <li>I will be working on the same codebase consistently.</li>
+            <li>The Motivator framework will help me stay focused on track.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Q. What is your vision?</h3>
+        <ul>
+            <li>In 4 months, I will reach a stage where I understand the nuances of web development and go beyond building a simple blog/app in Rails. This includes PWA, SEO, latency, performance and throughput optimization, testing, chat/socket programming, and mail management. The focus is on breadth in the Rails domain.</li>
+            <li>In the following 9 months, the goal is to build a product business with a team and secure some grant/venture funding.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Q. How do you avoid getting bored from the learning process?</h3>
+        <p>Because following a book or a single project can get monotonous, a multi-pronged approach to development will be used:</p>
+        <ul>
+            <li>Develop features as per the roadmap, making progress on my goals.</li>
+            <li>Publish at least one blog post per week.</li>
+            <li>Ask the community in the <a href="https://discuss.rubyonrails.org" target="_blank">Ruby on Rails forum</a>.</li>
+            <li>Open some PRs in the Lobsters repository.</li>
+            <li>Post YouTube/Twitch videos about Rails development.</li>
+        </ul>
+    </section>
+</section>
+<% end %>
+
+<% if logged_in? %>
+    <div id="goal-from">
+        <%= form_for :goal, url: goals_path(@goal) do |f| %>
+            <div class="form-group">
+            <%= f.text_area :title, class: "form-control", placeholder: "Title", required: true %>
+            </div>
+
+            <div class="form-group">
+            <%= f.select :goal_type, options_for_select([
+                ["project", "project"], ["writing", "writing"], ["video", "video"], 
+                ["open-source", "open-source"]]), {}, class: "form-select", required: true %>
+            </div>
+
+            <div class="form-group">
+            <%= f.date_field :end_date, value: Date.today, class: "form-control", required: true %>
+            </div>
+
+            <div class="form-group">
+            <%= f.button "Add Goal", class: "btn btn-success" %>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+
+<div id="goals">
+    <h3> Committed goals </h3>
+    <div id="all-goals">
+        <% @end_dates.sort.reverse.each do |end_date| %>
+            <div class="weekly-goals">
+                <h4> <%=end_date %> </h4>
+                <ul>
+                    <% @goals.where(end_date: end_date).each do |goal| %>
+                        <% if goal.status == "pending" %>
+                        <li>
+                            <%= link_to '✅', update_status_goal_path(goal), method: :patch, data: { turbo_method: :patch }, remote: true, class: "update-status" %>
+                            <%= goal.title %>
+                        </li>
+                      
+                        <% else %>
+                            <li>  🎉 <%= goal.title %>   </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -113,3 +113,28 @@ textarea {
 p.comment-body{
     white-space: pre-line;
   }
+
+#framework {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#faq, #framework {
+    ul {
+        list-style: disc;
+    }
+}
+#faq {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.goal-form {
+    
+    font-size: 10rem;
+}
+
+#all-goals {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
