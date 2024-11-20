@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_09_121613) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_20_100343) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "user_id", null: false
@@ -19,6 +19,17 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_09_121613) do
     t.datetime "updated_at", null: false
     t.index ["link_id"], name: "index_comments_on_link_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string "title"
+    t.string "goal_type"
+    t.date "end_date"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "pending", null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "links", force: :cascade do |t|
@@ -42,5 +53,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_09_121613) do
 
   add_foreign_key "comments", "links"
   add_foreign_key "comments", "users"
+  add_foreign_key "goals", "users"
   add_foreign_key "links", "users"
 end
