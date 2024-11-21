@@ -11,7 +11,7 @@
       <% end %>
 
       <% if logged_in? %>
-        <%= link_to "Hello #{current_user.username}", "#" %>
+        <%= link_to "Hello #{current_user.display}", "#" %>
         <%= link_to "submit a link", new_link_path %>
         <%= link_to "logout", logout_path %>
       <% end %>

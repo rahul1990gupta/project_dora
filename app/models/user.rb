@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
-    
+    validates :admin, inclusion: { in: [true, false] }
+
     validates :username,
             presence: true,
             length: { minimum: 3 },
@@ -16,10 +17,16 @@ class User < ApplicationRecord
     has_many :goals
 
     def owns_link?(link)
-        self == link.user
+        self.admin? || self == link.user 
     end
 
     def owns_comment?(comment)
-        self == comment.user
+        self.admin? || self == comment.user
     end
+    def admin?
+        self.admin
+    end
+    def display
+        self.admin? ? self.username + " [Admin]" : self.username
+    end 
 end

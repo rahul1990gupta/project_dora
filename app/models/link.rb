@@ -28,10 +28,8 @@ class Link < ApplicationRecord
   def assign_tags
     return unless tags_input
 
-    puts tags_input
     # Split the input by commas, strip whitespace, and find or create tags
     tag_names = tags_input.split(',').map(&:strip).uniq
-    puts tag_names
     tags_to_assign = tag_names.map { |name| Tag.find_or_create_by(name: name) }
 
     tags_to_assign.each do |tag|
