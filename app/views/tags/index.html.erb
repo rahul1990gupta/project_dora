@@ -1,0 +1,6 @@
+<% @tags.each do |tag| %>
+    <span class="tag">
+        <%= link_to tag.name, tag_path(tag)%> 
+        <%= tag.taggings.count %>
+    </span>
+<% end %>
