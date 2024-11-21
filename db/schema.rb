@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_20_100343) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_21_081956) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "user_id", null: false
@@ -42,6 +42,21 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_20_100343) do
     t.index ["user_id"], name: "index_links_on_user_id"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tag_id", null: false
+    t.integer "link_id", null: false
+    t.index ["link_id"], name: "index_taggings_on_link_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -55,4 +70,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_20_100343) do
   add_foreign_key "comments", "users"
   add_foreign_key "goals", "users"
   add_foreign_key "links", "users"
+  add_foreign_key "taggings", "links"
+  add_foreign_key "taggings", "tags"
 end

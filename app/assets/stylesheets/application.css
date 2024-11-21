@@ -138,3 +138,10 @@ p.comment-body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+.tag {
+    border: 1px solid antiquewhite;
+    border-radius: 0.5rem;
+    background-color: #3b320d;
+    padding: 0rem 0.5rem 0.2rem 0.5rem;
+}

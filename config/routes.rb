@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :tags do 
+  end
+
   resources :goals do 
     patch :update_status, on: :member
   end 

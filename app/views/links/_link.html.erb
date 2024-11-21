@@ -1,0 +1,33 @@
+<div class="link">
+<div class="title">
+  <%= link_to link.title, (link.url? ? link.url : link) %>
+  <% if link.url? %>
+    <span>
+      (<%= URI.parse(link.url).host %>)
+    </span>
+      <% link.tags.each do |tag| %>
+        <span class="tag">
+          <%= link_to tag.name, tag_path(tag)%>
+        </span>
+      <% end %>
+      <% if logged_in? && current_user.owns_link?(link) %>
+          <span class="edit-link">
+              <%= link_to "edit", edit_link_path(link) %>
+          </span>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="metadata">
+  <span>
+      via <%= link.user.username %>
+  </span>
+  <span class="time-created">
+    <%= time_ago_in_words(link.created_at) %> ago
+  </span>
+  <span class="comment-count">
+    <%= link_to pluralize(link.comment_count, 'comment'), link %>
+  </span>
+</div>
+
+</div>

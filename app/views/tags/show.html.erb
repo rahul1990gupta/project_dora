@@ -1,0 +1,8 @@
+
+Links tagged with tag: <span class="tag"><%= @tag.name %> </span>
+
+<ul class="links">
+    <% @tag.links.each do |link| %>
+        <%= render partial: "links/link", locals: {link: link} %> 
+    <% end %>
+</ul>
