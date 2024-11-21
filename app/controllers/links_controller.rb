@@ -46,8 +46,12 @@ class LinksController < ApplicationController
   end
 
   def update
-    @link = current_user.links.find_by(id: params[:id])
-
+    if current_user.admin?
+      @link = Link.find(params[:id])
+    else
+      @link = current_user.links.find_by(id: params[:id])
+    end
+    
     if @link.update(link_params)
       redirect_to root_path, notice: 'Link successfully updated'
     else
