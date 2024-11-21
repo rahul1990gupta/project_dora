@@ -139,6 +139,11 @@ p.comment-body{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 .tag {
     border: 1px solid antiquewhite;
     border-radius: 0.5rem;
