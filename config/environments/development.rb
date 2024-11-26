@@ -57,8 +57,8 @@ Rails.application.configure do
     address:              "smtp.gmail.com",
     port:                 587,
     domain:               'dubscale.com',
-    user_name:            Rails.application.credentials.smtp[:username],
-    password:             Rails.application.credentials.smtp[:password],
+    # user_name:            Rails.application.credentials.smtp[:user_name],
+    # password:             Rails.application.credentials.smtp[:password],
     authentication:       'plain',
     enable_starttls_auto: true
   }
