@@ -1,0 +1,11 @@
+<h1>Hello <%= @user.username %>,</h1>
+<p>Here are the posts from the last week:</p>
+<ul>
+  <% @links.each do |link| %>
+    <li>
+      <strong><%= link.title %></strong><br>
+      <%= link.description.truncate(100) %>
+      <a href="<%= link_url(link) %>">Read more</a>
+    </li>
+  <% end %>
+</ul>
