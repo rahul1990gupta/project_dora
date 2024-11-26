@@ -34,3 +34,4 @@
 /config/master.key
 /config/credentials.yml.enc
 /config/deploy/production.rb
+/config/database.yml
