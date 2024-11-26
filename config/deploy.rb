@@ -54,6 +54,15 @@ namespace :deploy do
         end
     end
 
+    # Install gems
+    task :install do
+        on roles(:app) do
+            within release_path do
+                execute "bundle", 'install RAILS_ENV=production'
+            end
+        end
+    end
+    
     # Run database migrations
     task :migrate do
         on roles(:db) do
@@ -84,6 +93,7 @@ end
 
 # Ensure tasks are executed after code update
 after 'deploy:updated', 'deploy:copy_secrets'
+after 'deploy:updated', 'deploy:install'
 after 'deploy:updated', 'deploy:migrate'
 after 'deploy:updated', 'deploy:precompile'
 after 'deploy:updated', 'deploy:restart'
