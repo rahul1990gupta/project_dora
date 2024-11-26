@@ -1,4 +1,4 @@
-require "test_helper"
+require "rails_helper"
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
   test "should get show" do
