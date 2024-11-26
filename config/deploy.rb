@@ -58,7 +58,7 @@ namespace :deploy do
     task :install do
         on roles(:app) do
             within release_path do
-                execute "bundle", 'install RAILS_ENV=production'
+                execute :bundle, "install RAILS_ENV=production"
             end
         end
     end
