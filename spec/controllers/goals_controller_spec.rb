@@ -1,4 +1,4 @@
-require "test_helper"
+require "rails_helper"
 
 class GoalsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do

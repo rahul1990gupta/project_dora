@@ -1,4 +1,4 @@
-require "test_helper"
+require "rails_helper"
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
