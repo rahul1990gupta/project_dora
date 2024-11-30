@@ -1,0 +1,6 @@
+<h1>Add a New Feed</h1>
+<%= form_with model: @feed, local: true do |form| %>
+  <%= form.label :url %>
+  <%= form.text_field :url %>
+  <%= form.submit 'Add Feed' %>
+<% end %>

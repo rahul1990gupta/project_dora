@@ -5,7 +5,8 @@ gem "bcrypt" # for storing passwords
 gem 'sprockets'
 gem "turbo-rails"
 gem 'whenever', require: false
-
+gem "feedjira"
+gem "http"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.0"

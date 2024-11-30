@@ -22,4 +22,8 @@
 every :monday, at: '12:00 am' do
     runner "WeeklyMailerJob.perform_now"
 end
-  
+
+
+every :day, at: "12:00 am" do
+    runner "RssFeedJob.perform_now"
+end

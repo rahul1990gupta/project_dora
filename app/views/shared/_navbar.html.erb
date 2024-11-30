@@ -5,6 +5,7 @@
   <% end %>
   
     <div class="navlinks">
+      <%= link_to "Feeds", feeds_path %>
       <% unless logged_in? %>
         <%= link_to "signup", new_user_path %>
         <%= link_to "login", new_session_path %>
