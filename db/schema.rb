@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_21_105212) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_29_160820) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "user_id", null: false
@@ -19,6 +19,25 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_21_105212) do
     t.datetime "updated_at", null: false
     t.index ["link_id"], name: "index_comments_on_link_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.datetime "published_at"
+    t.text "summary"
+    t.integer "feed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_entries_on_feed_id"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string "url"
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "goals", force: :cascade do |t|
@@ -69,6 +88,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_21_105212) do
 
   add_foreign_key "comments", "links"
   add_foreign_key "comments", "users"
+  add_foreign_key "entries", "feeds"
   add_foreign_key "goals", "users"
   add_foreign_key "links", "users"
   add_foreign_key "taggings", "links"

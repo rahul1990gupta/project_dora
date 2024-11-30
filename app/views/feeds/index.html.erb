@@ -1,0 +1,25 @@
+<div class="row">
+<h1>Feeds</h1> 
+<small>
+Last article published at: <%= time_ago_in_words(@last_published_at) %> ago
+</small>
+
+</div>
+<% if logged_in? %>
+    <%= link_to 'Add Feed', new_feed_path %>
+<% end %>
+
+<div id="all-feeds">
+<% @feeds.each do |feed| %>
+    <div class="entries">
+        <h2> <%= link_to feed.title || feed.url, feed_path(feed) %> </h2>
+        <ul>
+            <% feed.entries.order(published_at: :desc).limit(20).each do |entry| %>
+                <li>
+                <a href="<%= entry.url %>" target="_blank"><%= entry.title %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+</div>

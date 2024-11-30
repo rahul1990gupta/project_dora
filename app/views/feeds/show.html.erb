@@ -1,0 +1,10 @@
+<div id="display-feed">
+<h1><%= @feed.title %></h1>
+<ul>
+  <% @entries.each do |entry| %>
+    <li>
+      <a href="<%= entry.url %>" target="_blank"><%= entry.title %></a>
+    </li>
+  <% end %>
+</ul>
+</div>
