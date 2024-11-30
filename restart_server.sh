@@ -1,3 +1,4 @@
+RAILS_ENV=production bundle install
 RAILS_ENV=production rails assets:precompile
 RAILS_ENV=production rails db:migrate
 
