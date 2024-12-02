@@ -17,7 +17,7 @@
 <%= form_for :dish, url: dishes_path(@dish) do |f| %>
   <%= f.text_field :name, placeholder: "Dish Name", required: true %>
 
-  <%= f.select :meal_type, options_for_select(["breakfast", "lunch", "dinner"], "all"),
+  <%= f.select :meal_type, options_for_select(["breakfast", "lunch", "dinner", "all"]),
   { include_blank: "Select a meal type" }, required: true %>
   
   <%= f.select :season, options_for_select(["winter", "summer", "rainy"]),
