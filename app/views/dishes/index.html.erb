@@ -1,0 +1,28 @@
+<h1> Recipes for Winter </h2>
+<div class="cards">
+  <% ["breakfast", "lunch", "dinner", "all"].each do |food_type| %>
+    <div>
+      <h2> <%= food_type.capitalize %> </h2>
+      <ul>
+        <% @dishes.where(meal_type: food_type).each do |dish| %>
+          <li><%= dish.name.capitalize %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+
+<h3> Add a Dish </h3>
+<%= form_for :dish, url: dishes_path(@dish) do |f| %>
+  <%= f.text_field :name, placeholder: "Dish Name", required: true %>
+
+  <%= f.select :meal_type, options_for_select(["breakfast", "lunch", "dinner"], "all"),
+  { include_blank: "Select a meal type" }, required: true %>
+  
+  <%= f.select :season, options_for_select(["winter", "summer", "rainy"]),
+   { include_blank: "Select a season" }, required: true %>
+
+  <%= f.button "Add Dish", class: "btn btn-success" %>
+<% end %>
+

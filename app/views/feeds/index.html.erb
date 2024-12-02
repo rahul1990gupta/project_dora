@@ -9,7 +9,7 @@ Last article published at: <%= time_ago_in_words(@last_published_at) %> ago
     <%= link_to 'Add Feed', new_feed_path %>
 <% end %>
 
-<div id="all-feeds">
+<div class="cards">
 <% @feeds.each do |feed| %>
     <div class="entries">
         <h2> <%= link_to feed.title || feed.url, feed_path(feed) %> </h2>

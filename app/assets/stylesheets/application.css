@@ -154,20 +154,20 @@ p.comment-body{
 }
 
 @media only screen and (max-width: 600px) {
-    #all-feeds {
+    .cards {
         display: grid;
         grid-template-columns: 1fr;
     }
 }
 
 @media only screen and (min-width: 600px) {
-    #all-feeds {
+    .cards {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
-#all-feeds {
+.cards {
     margin-top: 10px;
     a {
         text-decoration: None;

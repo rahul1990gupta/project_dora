@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :feeds, only: [:index, :show, :new, :create]
+  resources :dishes, only: [:index, :new, :create] 
+  resources :feeds, only: [:index, :show, :new, :create] 
 
   resources :tags do 
   end
