@@ -6,7 +6,9 @@ Last article published at: <%= time_ago_in_words(@last_published_at) %> ago
 
 </div>
 <% if logged_in? %>
-    <%= link_to 'Add Feed', new_feed_path %>
+    <%= turbo_frame_tag "add_feed" do %>
+        <%= link_to 'Add Feed', new_feed_path %>
+    <% end %>
 <% end %>
 
 <div class="cards">
