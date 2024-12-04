@@ -19,9 +19,9 @@ class FeedsController < ApplicationController
       @feed = Feed.new(feed_params)
       if @feed.save
         @feed.fetch_and_parse
-        redirect_to @feed, notice: 'Feed added successfully!'
+        redirect_to feeds_path, notice: 'Feed added successfully!'
       else
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
   
