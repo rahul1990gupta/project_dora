@@ -1,5 +1,5 @@
-<section id="framework">
-    <div id="goals" class="motivator-column">
+<section class="cards">
+    <div id="goals" class="card">
         <h3> Goals </h3>
         <ul>
             <li> Set clear goals </li>
@@ -7,7 +7,7 @@
             <li> Track your progress </li>
         </ul>
     </div>
-    <div id="discipline" class="motivator-column">
+    <div id="discipline" class="card">
         <h3> Discipline </h3>
         <ul>
             <li> Build good habits </li>
@@ -17,7 +17,7 @@
         </ul>
     </div>
 
-    <div id="attitude" class="motivator-column">
+    <div id="attitude" class="card">
     <h3> Attitude </h3>
         <ul>
             <li> Stay disciplined </li>
@@ -33,9 +33,9 @@
 <ul id="milestones">
     <li>🎉 Nov 21, 2023 - Finished 1000 LOC code running in production. </li>
 </ul>
-<section id="faq">
+<section class="cards">
 
-    <section>
+    <section class="card">
         <h3>Q. Why RoR?</h3>
         <ul>
             <li>Iterating on a website is faster. No compilation or build step. Easy testing and deployment.</li>
@@ -46,7 +46,7 @@
         </ul>
     </section>
 
-    <section>
+    <section class="card">
         <h3>Q. How can I learn it in 4 months, when other people take years to master it?</h3>
         <ul>
             <li>I will focus solely on learning RoR and nothing else. This means not learning Node.js, Rust, Flutter, app development, Python, ML, Golang, databases, Chrome extension, games, etc. A lot must be sacrificed to make real progress on RoR. Once comfortable with RoR, other things will come easier to me.</li>
@@ -55,7 +55,7 @@
         </ul>
     </section>
 
-    <section>
+    <section class="card">
         <h3>Q. What is your vision?</h3>
         <ul>
             <li>In 4 months, I will reach a stage where I understand the nuances of web development and go beyond building a simple blog/app in Rails. This includes PWA, SEO, latency, performance and throughput optimization, testing, chat/socket programming, and mail management. The focus is on breadth in the Rails domain.</li>
@@ -63,7 +63,7 @@
         </ul>
     </section>
 
-    <section>
+    <section class="card">
         <h3>Q. How do you avoid getting bored from the learning process?</h3>
         <p>Because following a book or a single project can get monotonous, a multi-pronged approach to development will be used:</p>
         <ul>
@@ -78,7 +78,7 @@
 <% end %>
 
 <% if logged_in? %>
-    <div id="goal-from">
+    <div id="goal-form">
         <%= form_for :goal, url: goals_path(@goal) do |f| %>
             <div class="form-group">
             <%= f.text_area :title, class: "form-control", placeholder: "Title", required: true %>
@@ -103,9 +103,9 @@
 
 <div id="goals">
     <h3> Committed goals </h3>
-    <div id="all-goals">
+    <div class="cards">
         <% @end_dates.sort.reverse.each do |end_date| %>
-            <div class="weekly-goals">
+            <div class="card">
                 <h4> <%=end_date %> </h4>
                 <ul>
                     <% @goals.where(end_date: end_date).each do |goal| %>

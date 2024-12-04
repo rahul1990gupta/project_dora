@@ -1,0 +1,15 @@
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+.navlinks > a {
+  padding: 0 12px;
+}
+
+/* https://www.svgrepo.com/svg/401857/girl-medium-skin-tone */
+
+.logo-image {
+  width: 30px;
+}

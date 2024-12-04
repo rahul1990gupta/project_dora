@@ -1,0 +1,9 @@
+
+p.comment-body{
+  white-space: pre-line;
+}
+
+.comment {
+  margin: 12px auto;
+  border-bottom: 1px solid #f5f5f5;
+}

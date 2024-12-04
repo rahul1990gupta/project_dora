@@ -11,8 +11,9 @@ Last article published at: <%= time_ago_in_words(@last_published_at) %> ago
 
 <div class="cards">
 <% @feeds.each do |feed| %>
-    <div class="entries">
+        <div class="card">
         <h2> <%= link_to feed.title || feed.url, feed_path(feed) %> </h2>
+
         <ul>
             <% feed.entries.order(published_at: :desc).limit(20).each do |entry| %>
                 <li>
@@ -20,6 +21,6 @@ Last article published at: <%= time_ago_in_words(@last_published_at) %> ago
                 </li>
             <% end %>
         </ul>
-    </div>
+        </div>
 <% end %>
 </div>

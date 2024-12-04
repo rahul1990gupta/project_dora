@@ -1,0 +1,38 @@
+
+@media only screen and (max-width: 600px) {
+  .metadata > span {
+      font-size: 0.7rem;
+  }
+  .title > span {
+      font-size: 0.7rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .metadata > span {
+      font-size: 1.2rem;
+  }
+  .title > span {
+      font-size: 1.2rem;
+  }
+}
+
+
+.metadata {
+  span {
+    margin: 0 4px;
+    border-right: 1px solid antiquewhite;
+    
+    &:first-child {
+      margin: 0;
+    }
+    
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
+.link {
+  margin: 25px auto;
+}
