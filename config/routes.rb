@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :dishes, only: [:index, :new, :create] 
   resources :feeds, only: [:index, :show, :new, :create] 
 
@@ -23,7 +24,8 @@ Rails.application.routes.draw do
   
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
-
+  resources :portfolio, only: [:index]
+  
   resources :users, only: [:new, :create, :index]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

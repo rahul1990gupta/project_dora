@@ -1,0 +1,13 @@
+#portfolio {
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  th, td {
+    border: 1px solid var(--font-color);
+    padding: 8px;
+  }
+}
