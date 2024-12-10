@@ -5,12 +5,13 @@ snap install --classic certbot
 
 # install rbenv
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ~/.rbenv/bin/rbenv init
 rbenv install 3.3.5
 rbenv blobal 3.3.5
 
 # start server
-tar -xvf project_dora.tar.gz 
+tar -xvf project_dora.tar.gz
 cd project_dora/
 bundle install
 
