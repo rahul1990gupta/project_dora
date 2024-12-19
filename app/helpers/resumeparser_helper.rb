@@ -1,0 +1,2 @@
+module ResumeparserHelper
+end
