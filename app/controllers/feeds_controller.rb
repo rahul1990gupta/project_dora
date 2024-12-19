@@ -2,7 +2,15 @@ class FeedsController < ApplicationController
     before_action :prevent_unauthorized_user_access, only: [:new]
 
     def index
-      @feeds = Feed.all
+      # Entry.where("published_at > ?",   7.days.ago)
+      @feeds = Feed.all   
+      if params[:time_filter] == "last_week"
+        @time_filter = 7.days.ago
+      elsif params[:time_filter] == "last_month"
+        @time_filter = 31.days.ago 
+      else
+        @time_filter = 365.days.ago
+      end
       @last_published_at = Entry.maximum(:published_at)
     end
   

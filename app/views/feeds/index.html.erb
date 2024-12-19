@@ -11,18 +11,26 @@ Last article published at: <%= time_ago_in_words(@last_published_at) %> ago
     <% end %>
 <% end %>
 
+
+<br>
+<%= link_to 'All', feeds_path, method: :get, class: 'filter-button' %>
+<%= link_to 'Last Week', feeds_path(time_filter: "last_week"), method: :get, class: 'filter-button' %>
+<%= link_to 'Last Month', feeds_path(time_filter: "last_month"), method: :get, class: 'filter-button' %>
+
 <div class="cards">
 <% @feeds.each do |feed| %>
+    <% if feed.entries.where("published_at > ?", @time_filter).count > 0 %>
         <div class="card">
         <h2> <%= link_to feed.title || feed.url, feed_path(feed) %> </h2>
 
         <ul>
-            <% feed.entries.order(published_at: :desc).limit(20).each do |entry| %>
+            <% feed.entries.where("published_at > ?", @time_filter).order(published_at: :desc).limit(20).each do |entry| %>
                 <li>
                 <a href="<%= entry.url %>" target="_blank"><%= entry.title %></a>
                 </li>
             <% end %>
         </ul>
         </div>
+    <% end %>
 <% end %>
 </div>
