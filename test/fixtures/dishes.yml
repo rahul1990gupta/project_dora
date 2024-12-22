@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  type: 
+  meal_type: Breakfast
   season: MyString
 
 two:
   name: MyString
-  type: 
+  meal_type: Lunch
   season: MyString

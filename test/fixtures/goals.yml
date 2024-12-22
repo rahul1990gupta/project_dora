@@ -2,12 +2,11 @@
 
 one:
   title: MyString
-  type: 
+  goal_type: project
   end_date: 2024-11-20
-  owner: 1
-
+  user: one
 two:
   title: MyString
-  type: 
+  goal_type: video
   end_date: 2024-11-20
-  owner: 1
+  user: two
