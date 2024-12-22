@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :prevent_unauthorized_user_access, only: [:new, :edit]
 
   def index
-    @links = Link.order(id: :desc).limit(50)
+    @links = Link.includes(:comments, :tags, :user).order(id: :desc).limit(50)
   end
 
   def new
