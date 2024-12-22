@@ -1,6 +1,6 @@
 require "test_helper"
 
-#TODO
+# TODO
 class GoalsControllerTest < ActionDispatch::IntegrationTest
   # test "should get index" do
   #   user = users(:one)

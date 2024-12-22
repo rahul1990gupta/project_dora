@@ -56,14 +56,13 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              "smtp.gmail.com",
     port:                 587,
-    domain:               'dubscale.com',
+    domain:               "dubscale.com",
     user_name:            "username",
     password:             "password",
-    authentication:       'plain',
+    authentication:       "plain",
     enable_starttls_auto: true
   }
 
   # For development environment (config/environments/development.rb)
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 end

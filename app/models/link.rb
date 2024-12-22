@@ -8,7 +8,7 @@ class Link < ApplicationRecord
   validates :title,
             presence: true,
             uniqueness: { case_sensitive: false }
-            
+
   validates :url,
           format: { with: %r{\Ahttps?://} },
           allow_blank: true
@@ -29,12 +29,11 @@ class Link < ApplicationRecord
     return unless tags_input
 
     # Split the input by commas, strip whitespace, and find or create tags
-    tag_names = tags_input.split(',').map(&:strip).uniq
+    tag_names = tags_input.split(",").map(&:strip).uniq
     tags_to_assign = tag_names.map { |name| Tag.find_or_create_by(name: name) }
 
     tags_to_assign.each do |tag|
       Tagging.find_or_create_by(link: self, tag: tag)
     end
   end
-
 end

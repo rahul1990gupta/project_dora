@@ -1,5 +1,5 @@
 # Rakefile
-namespace :job do 
+namespace :job do
   desc "Count the number of lines of code in the project"
   task :count_lines do
     # Get all Ruby files in the current directory and subdirectories
@@ -19,5 +19,4 @@ namespace :job do
 
     puts "\nTotal number of lines: #{total_lines}"
   end
-end 
-
+end

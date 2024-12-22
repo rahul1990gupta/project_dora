@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   before_action :prevent_logged_in_user_access, except: :destroy
   before_action :prevent_unauthorized_user_access, only: :destroy
-  
+
   def new
   end
 
@@ -11,22 +11,21 @@ class SessionsController < ApplicationController
     if user && user.authenticate(login_params[:password])
       login(user)
 
-      redirect_to root_path, notice: 'Loged In'
-    else 
-      flash.now[:notice] = 'Invalid username / password combination'
+      redirect_to root_path, notice: "Loged In"
+    else
+      flash.now[:notice] = "Invalid username / password combination"
       render :new
     end
-  end 
+  end
 
   def destroy
     logout
-    redirect_to root_path, notice: 'Logged out'
+    redirect_to root_path, notice: "Logged out"
   end
 
-  private 
+  private
 
   def login_params
     params.require(:session).permit(:username, :password)
   end
 end
-

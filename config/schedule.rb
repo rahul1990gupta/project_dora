@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :monday, at: '12:00 am' do
+every :monday, at: "12:00 am" do
     runner "WeeklyMailerJob.perform_now"
 end
 

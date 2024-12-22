@@ -1,32 +1,31 @@
 Rails.application.routes.draw do
+  resources :dishes, only: [ :index, :new, :create ]
+  resources :feeds, only: [ :index, :show, :new, :create ]
 
-  resources :dishes, only: [:index, :new, :create] 
-  resources :feeds, only: [:index, :show, :new, :create] 
-
-  resources :tags do 
+  resources :tags do
   end
 
-  resources :goals do 
+  resources :goals do
     patch :update_status, on: :member
-  end 
-  
-  resources :links, except: :index do
-    resources :comments, only: [:create, :edit, :update, :destroy]
   end
 
-  get '/comments' => 'comments#index'
+  resources :links, except: :index do
+    resources :comments, only: [ :create, :edit, :update, :destroy ]
+  end
+
+  get "/comments" => "comments#index"
 
   root "links#index"
 
-  resources :sessions, only: [:new, :create] do
+  resources :sessions, only: [ :new, :create ] do
     delete :destroy, on: :collection
   end
-  
-  get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :portfolio, only: [:index]
-  
-  resources :users, only: [:new, :create, :index]
+  get "/logout", to: "sessions#destroy", as: "logout"
+
+  resources :portfolio, only: [ :index ]
+
+  resources :users, only: [ :new, :create, :index ]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

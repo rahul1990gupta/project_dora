@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   def index
-    @dishes = Dish.where(season:"winter")
+    @dishes = Dish.where(season: "winter")
   end
 
   def create
@@ -12,7 +12,7 @@ class DishesController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def dish_params
     params.require(:dish).permit(:name, :meal_type, :season)

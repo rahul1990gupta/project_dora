@@ -4,5 +4,5 @@ namespace :job do
     Feed.all.each do |feed|
       feed.fetch_and_parse
     end
-  end 
+  end
 end

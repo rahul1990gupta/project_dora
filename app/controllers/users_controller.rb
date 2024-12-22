@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.select(:username)
-  end 
-  
+  end
+
   def new
     @user = User.new
   end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      redirect_to root_path, notice: 'Logged In'
+      redirect_to root_path, notice: "Logged In"
     else
       render :new
     end
@@ -23,5 +23,5 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username, :email, :password)
-  end 
+  end
 end

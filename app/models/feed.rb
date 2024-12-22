@@ -1,5 +1,5 @@
-require 'feedjira'
-require 'http'
+require "feedjira"
+require "http"
 
 
 class Feed < ApplicationRecord
@@ -10,7 +10,7 @@ class Feed < ApplicationRecord
 
     update(
       title: rss_feed.title,
-    #   description: rss_feed.description
+      #   description: rss_feed.description
     )
 
     rss_feed.entries.each do |entry|

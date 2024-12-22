@@ -19,13 +19,13 @@ class GoalsController < ApplicationController
 
   def update_status
     @goal = Goal.find(params[:id])
-    if @goal.update(status: 'completed')
+    if @goal.update(status: "completed")
       # render json: { status: 'completed' }, status: :ok
       redirect_to goals_path
     else
-      render json: { error: 'Failed to update' }, status: :unprocessable_entity
+      render json: { error: "Failed to update" }, status: :unprocessable_entity
     end
-  end 
+  end
 
 
   private
@@ -34,8 +34,8 @@ class GoalsController < ApplicationController
   def goal_params
     # Add user_id to params before permitting the other parameters
     params[:goal][:user_id] = current_user.id if current_user
-    
+
     # Permit the parameters
     params.require(:goal).permit(:title, :goal_type, :end_date, :user_id)
-  end  
+  end
 end
