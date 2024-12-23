@@ -43,4 +43,4 @@ end
 
 
 
-gem "importmap-rails", "~> 2.0"
+gem "importmap-rails", "~> 2.1"
